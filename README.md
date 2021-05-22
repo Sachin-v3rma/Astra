@@ -9,12 +9,16 @@ So basically everyone of them is modified by me.
 
 Takes Input from stdin, so easy to use in automation.
 
-Flags : -ns --> No secrets. Only find urls and endpoints. Also increases the speed.
+Flags : 
+	
+	-ns --> No secrets. Only find urls and endpoints. Also increases the speed.
 	-t  --> Threads. Only increase if you have strong internet connection.
 
-Example :	cat live_subdomains.txt | python3 astra.py
-		echo https://www.example.com | python3 astra.py -ns |tee astra_urls.txt
-		cat js_urls.txt | python3 astra.py -t 20 | anew urls_secrets.txt
+Example :	
+
+	cat live_subdomains.txt | python3 astra.py
+	echo https://www.example.com | python3 astra.py -ns |tee astra_urls.txt
+	cat js_urls.txt | python3 astra.py -t 20 | anew urls_secrets.txt
 
 Output :
 
