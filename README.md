@@ -5,6 +5,10 @@ Its a combination of linkfinder and secretfinder. Uses Regex's from linkfinder, 
 Although None of them worked exactly because python's regex r way different.
 So basically everyone of them is modified by me.
 
+# Installation
+	git clone https://github.com/Sachin-v3rma/Astra && cd Astra
+	pip3 install -r requirements.txt
+
 # Usage
 
 Takes Input from stdin, so easy to use in automation.
