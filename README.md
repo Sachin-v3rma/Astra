@@ -37,7 +37,7 @@ Also decrease the threads if your internet connection is weak (like i use mobile
 
 # Creator
 
-Made by Sachin Verma with <3
+Made by Sachin Verma with <3 </br>
 Twitter : sachin_vm
 
 NO BANNER BECAUSE WHY ??
