@@ -127,6 +127,9 @@ async def parser(session, url):
     except asyncio.exceptions.TimeoutError:
         print(f'{col.red}Request Timeout : {url}{col.reset}')
         return found
+    except UnicodeDecodeError:
+        pass
+        return found
     else:
         await linkfinder(url, html)
         if no_secret == False:
