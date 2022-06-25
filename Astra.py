@@ -53,7 +53,7 @@ regex_secret = {
     'discord-webhook':r'(https://discordapp\.com/api/webhooks/[0-9]+/[A-Za-z0-9-]+)',
     'cloudinary-credentials':r'(cloudinary://[0-9]+:[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+)',
     'facebook_access_token' : r'EAACEdEose0cBA[0-9A-Za-z]+',
-    'authorization_basic' : r'basic [a-zA-Z0-9=:_\+\/-]{5,100}',
+    'authorization_basic' : r'basic [a-zA-Z0-9=:_-]{5,100}',
     'authorization_bearer' : r'bearer [a-zA-Z0-9_.=:_\+\/-]{5,100}',
     'authorization_api' : r'api[key|_key|\s+]+[a-zA-Z0-9_-]{5,100}',
     'mailgun_api_key' : r'key-[0-9a-zA-Z]{32}',
@@ -100,9 +100,13 @@ async def linkfinder(url, html):
         parsed_url = urlparse.urljoin(url,link)
         print(f'{parsed_url}')
     for bucket in re.findall(r'(?:[a-zA-Z0-9_-]+s3.amazonaws.com|[a-zA-Z0-9_.-]+amazonaws.com|[a-zA-Z0-9-\.\_]+\.s3\.amazonaws\.com|s3://[a-zA-Z0-9-\.\_]+|s3-[a-zA-Z0-9-\.\_\/]+|s3.amazonaws.com/[a-zA-Z0-9-\.\_]+)', html):
-            print(f'[C] {bucket}')
+            print(f'[^] {bucket}')
     for ip in re.findall(r'((?:25[0-5]|2[0-4]\d|[0-1]?\d{1,2})(?:\.(?:25[0-5]|2[0-4]\d|[0-1]?\d{1,2})){3})', html):
         print(f'[IP] {ip}')
+    for script in re.findall(r'src\s*=\s*(?:"|\')[a-zA-Z0-9\!\#\$\&-\:\;\=\?-\[\]_~\|%\/]+(?:"|\')', html):
+        parsed_url = urlparse.urljoin(url,script.split('=')[1].strip('"'))
+        print(parsed_url)
+
     global url_counter
     url_counter = url_counter + len(url_set)
 
@@ -137,7 +141,7 @@ async def parser(session, url):
 
 async def start(urls:set, threads) -> None:
     connector = aiohttp.TCPConnector(limit_per_host=threads)
-    timeout = aiohttp.ClientTimeout(total=10)
+    timeout = aiohttp.ClientTimeout(total=5)
     async with aiohttp.ClientSession(connector=connector,timeout=timeout) as session:
         tasks = []
         for url in urls:
