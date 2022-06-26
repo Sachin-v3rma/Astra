@@ -15,7 +15,7 @@ Takes Input from stdin, so easy to use in automation.
 
 Flags : 
 	
-	-ns --> No secrets. Only find urls and endpoints. Also increases the speed.
+	-ns --> No Secretfinder. Only find urls and endpoints. Also increases the speed.
 	-t  --> Threads. Only increase if you have strong internet connection.
 
 Example :	
