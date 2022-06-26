@@ -69,6 +69,7 @@ regex_secret = {
     'json_web_token' : r'ey[A-Za-z0-9_=-]+.[A-Za-z0-9_=-]+\.?[A-Za-z0-9_.+/=-]*$',
     'SSH_privKey' : r"([-]+BEGIN [^\s]+ PRIVATE KEY[-]+[\s]*[^-]*[-]+END [^\s]+ PRIVATE KEY[-]+)",
     'Heroku API KEY' : r'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',
+    'API_Key' : r'(?i)apikey\s?[=|:]\s?(["|\'].*["|\'])',
 }
 
 class col:
