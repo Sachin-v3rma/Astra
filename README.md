@@ -1,4 +1,3 @@
-![Logo](/logo.jpg)
 Astra finds urls, endpoints, aws buckets, api keys, tokens, etc from a given url/s. It combines the paths and endpoints with the given domain and
 gives full URL. We can use it on js, html, etc files.
 Astra uses asynchronous method to fetch URLs using python's aiohttp and asyncio.
