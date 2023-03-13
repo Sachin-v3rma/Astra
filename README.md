@@ -20,9 +20,9 @@ Flags :
 
 Example :	
 
-	cat live_subdomains.txt | python3 astra.py
-	echo https://www.example.com | python3 astra.py -ns |tee astra_urls.txt
-	cat js_urls.txt | python3 astra.py -t 20 | anew urls_secrets.txt
+	cat live_subdomains.txt | python3 Astra.py
+	echo https://www.example.com | python3 Astra.py -ns |tee astra_urls.txt
+	cat js_urls.txt | python3 Astra.py -t 20 | anew urls_secrets.txt
 
 Output :
 
